@@ -52,8 +52,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'slim'
 gem 'slim-rails'
-
+# design
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
+# Allows resetting the id of an AR table to 0. Useful after a delete_all. Works in Postgres and Sqlite (not MySQL) for now.
+gem 'activerecord-reset-pk-sequence'

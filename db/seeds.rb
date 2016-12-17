@@ -23,7 +23,7 @@ Theme.delete_all
 Theme.reset_pk_sequence
 Theme.create(
     [
-        {name: 'Тема1'},
-        {name: 'Тема2'}
+        {name: 'Одни велосипеды'},
+        {name: 'Другие велосипеды'}
     ]
 )

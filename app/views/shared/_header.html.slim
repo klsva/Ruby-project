@@ -15,8 +15,8 @@
             li = link_to 'Создать пользователя', new_user_path
             li = link_to 'Help', main_help_path
             li.divider
-            li.dropdown-header
-              | La-la
+            li.dropdown-header = link_to 'Выбор темы картинок', work_index_path
+
             li
               a[href="#"]
                 | La-la-la

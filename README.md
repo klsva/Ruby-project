@@ -33,7 +33,7 @@
 | Value   |                   | Таблица оценок фотографии         |
 |         | id                | PK                                |
 |         | user_id           | FK1                               |
-|         | image_id          | FK2                               |
+|         | photo_id          | FK2                               |
 |         | value             |                                   |
 | Comment |                   | Таблица комментариев к фотографии |
 |         | id                | PK                                |

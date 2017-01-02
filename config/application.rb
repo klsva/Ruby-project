@@ -8,9 +8,15 @@ Bundler.require(*Rails.groups)
 
 module Myproject
   class Application < Rails::Application
+    config.generators do |g|
+      g.template_engine :slim
+    end
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.fallbacks = true
+    config.i18n.fallbacks = [:en]
+    config.i18n.enforce_available_locales = true
   end
 end
+
+

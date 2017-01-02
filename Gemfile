@@ -58,4 +58,11 @@ gem 'bootstrap-sass-extras'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 # Allows resetting the id of an AR table to 0. Useful after a delete_all. Works in Postgres and Sqlite (not MySQL) for now.
-gem 'activerecord-reset-pk-sequence'
+gem 'activerecord-reset-pk-sequence', '~> 0.2.1'
+
+# for tests
+gem 'rspec-rails'
+# gem 'shoulda'
+
+#Ruby Internationalization and localization solution
+gem 'i18n'

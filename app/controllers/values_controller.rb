@@ -69,6 +69,6 @@ class ValuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def value_params
-      params.require(:value).permit(:user_id, :image_id, :value, :integer)
+      params.require(:value).permit(:user_id, :photo_id, :value)
     end
 end

@@ -5,9 +5,4 @@ class MainController < ApplicationController
   def help
   end
 
-  def about
-  end
-
-  def contacts
-  end
 end

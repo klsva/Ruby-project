@@ -3,23 +3,10 @@
     .navbar-collapse.collapse
       ul.nav.navbar-nav
         li.active =link_to 'Ruby-project', root_path
-        li = link_to 'About', main_about_path
-        li = link_to 'Contacts', main_contacts_path
-        li = link_to 'Help', main_help_path
-        li.dropdown
-          a.dropdown-toggle[href="#" data-toggle="dropdown"]
-            | Выпадашка
-            b.caret
-          ul.dropdown-menu
-            li = link_to 'Список пользователей', users_path
-            li = link_to 'Создать пользователя', new_user_path
-            li = link_to 'Help', main_help_path
-            li.divider
-            li.dropdown-header = link_to 'Выбор темы картинок', work_index_path
+        li = link_to t('.help'), main_help_path
+        li = link_to t('.log in'), '#'
+        li = link_to 'RU', locale: :ru
+        li = link_to 'EN', locale: :en
+        b
+          = I18n.locale
 
-            li
-              a[href="#"]
-                | La-la-la
-            li
-              a[href="#"]
-                | La-la-la-la

@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Album name:
+  = @album.album_name
+p
+  strong Album description:
+  = @album.album_description
+p
+  strong User:
+  = @album.user_id
+
+= link_to 'Edit', edit_album_path(@album)
+'|
+= link_to 'Back', albums_path

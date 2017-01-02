@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210125924) do
+ActiveRecord::Schema.define(version: 20170102124355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "album_name"
+    t.text     "album_description"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +38,16 @@ ActiveRecord::Schema.define(version: 20161210125924) do
     t.integer  "theme_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "photo_name"
+    t.integer  "album_id"
+    t.text     "photo_description"
+    t.text     "file"
+    t.float    "ave_value"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "themes", force: :cascade do |t|
@@ -34,16 +60,15 @@ ActiveRecord::Schema.define(version: 20161210125924) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "age"
+    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "values", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "image_id"
-    t.string   "value"
-    t.string   "integer"
+    t.integer  "photo_id"
+    t.integer  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

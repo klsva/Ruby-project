@@ -4,9 +4,8 @@ table
   thead
     tr
       th User
-      th Image
+      th Photo
       th Value
-      th Integer
       th
       th
       th
@@ -15,9 +14,8 @@ table
     - @values.each do |value|
       tr
         td = value.user_id
-        td = value.image_id
+        td = value.photo_id
         td = value.value
-        td = value.integer
         td = link_to 'Show', value
         td = link_to 'Edit', edit_value_path(value)
         td = link_to 'Destroy', value, data: { confirm: 'Are you sure?' }, method: :delete

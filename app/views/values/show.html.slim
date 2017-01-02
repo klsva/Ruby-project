@@ -4,14 +4,11 @@ p
   strong User:
   = @value.user_id
 p
-  strong Image:
-  = @value.image_id
+  strong Photo:
+  = @value.photo_id
 p
   strong Value:
   = @value.value
-p
-  strong Integer:
-  = @value.integer
 
 = link_to 'Edit', edit_value_path(@value)
 '|

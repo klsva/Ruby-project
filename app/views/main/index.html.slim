@@ -1,9 +1,6 @@
 .container.down
-  .row
-    h1 Main page
-    ul
-      li = link_to 'Contacts', main_contacts_path
-      li = link_to 'Help', main_contacts_path
-      li = link_to 'About', main_contacts_path
-    i.fa.fa-book[aria-hidden="true"]
-    fa_icon "camera-retro"
+  .row.center.jumbotron
+      h1 Добро пожаловать!
+      h2 Это главная страница приложения
+      =link_to image_tag("logo.png", alt:"logo")
+      .btn.btn-primary = link_to t('.sign up'), '#'

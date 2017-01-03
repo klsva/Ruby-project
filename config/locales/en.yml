@@ -22,7 +22,12 @@
 en:
   shared:
     header:
-        home: "Home"
-        help: "Help"
-        log in: "Log in"
-
+      home: "Home"
+      help: "Help"
+      log_in: "Log in"
+  main:
+    index:
+      signup: "Sign up"
+  users:
+    show:
+      my_profile: "My profile"

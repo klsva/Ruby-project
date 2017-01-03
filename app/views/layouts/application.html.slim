@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
-    title Myproject
+    title = yield(:title)
     = csrf_meta_tags
     = favicon_link_tag 'fav.ico'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'

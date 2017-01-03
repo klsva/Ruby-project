@@ -1,15 +1,9 @@
-p#notice = notice
+= provide(:title, t('.my_profile'))
+.container.down
+  .row
+    aside
+      section.user_info
+        h1
+          = gravatar_for @user
+          = @user.name
 
-p
-  strong Name:
-  = @user.name
-p
-  strong Email:
-  = @user.email
-p
-  strong Password:
-  = @user.password
-
-= link_to 'Edit', edit_user_path(@user)
-'|
-= link_to 'Back', users_path

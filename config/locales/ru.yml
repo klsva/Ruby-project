@@ -1,6 +1,12 @@
 ru:
   shared:
-      header:
-        home: "Главная"
-        help: "Помощь"
-        log in: "Авторизоваться"
+    header:
+      home: "Главная"
+      help: "Помощь"
+      log_in: "Авторизоваться"
+  main:
+    index:
+      signup: "Зарегистрироваться"
+  users:
+    show:
+      my_profile: "Мой профиль"

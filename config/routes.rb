@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-
+  root 'main#index'
+  get 'help' => 'main#help'
+  get 'signup' => 'users#new'
+  resources :users #обеспечивает автоматический вызов всех методов REST
 
 
   resources :comments
   resources :values
   resources :photos
   resources :albums
-  resources :users
 #
 #  get 'work/choose_theme'
 #  get 'work/display_theme'
@@ -14,10 +16,10 @@ Rails.application.routes.draw do
   #resources :themes
   #resources :images
 
- root 'main#index'
-  get 'main/help'
-  get 'main/about'
-  get 'main/contacts'
+
+#  get 'main/help'
+#  get 'main/about'
+#  get 'main/contacts'
 
   #get 'work/index'
  # root to: 'work#index'  что это?

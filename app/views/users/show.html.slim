@@ -1,9 +1,9 @@
 = provide(:title, t('.my_profile'))
-.container.down
-  .row
-    aside
-      section.user_info
-        h1
-          = gravatar_for @user
-          = @user.name
+
+.row
+  aside
+    section.user_info
+      h1
+        = gravatar_for @user
+        = @user.name
 

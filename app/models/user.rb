@@ -7,7 +7,8 @@ class User < ApplicationRecord
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false} #нечувствительность к регистру
   has_secure_password
-  validates :password, length: {minimum: 6}
+  validates :password, length: {minimum: 6}, allow_blank: true
+  #blank для пустых паролей при изменении профиля, а has_secure_password не дает задать пустой пароль при регистрации
 
   #возвращает дайджест для указанной строки / в тч для тестов
   def User.digest(string)

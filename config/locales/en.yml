@@ -31,3 +31,5 @@ en:
   users:
     show:
       my_profile: "My profile"
+    edit:
+      edit_user: "Edit user"

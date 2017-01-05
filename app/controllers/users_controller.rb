@@ -18,6 +18,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      #обработать успешное изменение
+      flash[:success] = "Профиль обновлен"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private
     #возвращает хеш, с разрешенными атрибутами
     def user_params

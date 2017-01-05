@@ -10,3 +10,5 @@ ru:
   users:
     show:
       my_profile: "Мой профиль"
+    edit:
+      edit_user: "Редактировать профиль"

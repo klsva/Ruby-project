@@ -33,3 +33,5 @@ en:
       my_profile: "My profile"
     edit:
       edit_user: "Edit user"
+    index:
+      all_users: "All users"

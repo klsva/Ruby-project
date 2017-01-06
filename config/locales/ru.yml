@@ -12,3 +12,5 @@ ru:
       my_profile: "Мой профиль"
     edit:
       edit_user: "Редактировать профиль"
+    index:
+          all_users: "Все пользователи"

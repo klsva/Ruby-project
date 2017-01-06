@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       #осуществить вход пользователя и переадресовать на страницу профиля
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_back_or user
     else
       #создать сообщение об ошибке
       flash.now[:danger] = 'Неверно введен логин или пароль!'

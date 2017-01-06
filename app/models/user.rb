@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :albums, dependent: :destroy #каскадное удаление альбомов вместе с удалением учетной записи пользователя
   attr_accessor :remember_token #создает методы доступа к атрибуту(getter и setter)
   before_save {self.email=email.downcase} #перевод в нижний регистр
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
@@ -38,5 +39,12 @@ class User < ApplicationRecord
   #забывает пользователя
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  #определяет прото-ленту
+  def feed
+    Album.where("user_id = ?", id)
+    #знак ? гарантирует экранирование знач id перед включением в БД запрос
+
   end
 end

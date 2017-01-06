@@ -10,17 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105185602) do
+ActiveRecord::Schema.define(version: 20170106100500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
-    t.text     "album_description"
     t.integer  "user_id"
+    t.text     "album_description"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["user_id", "created_at"], name: "index_albums_on_user_id_and_created_at", using: :btree
+    t.index ["user_id"], name: "index_albums_on_user_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -40,16 +42,6 @@ ActiveRecord::Schema.define(version: 20170105185602) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "photo_name"
-    t.integer  "album_id"
-    t.text     "photo_description"
-    t.text     "file"
-    t.float    "ave_value"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "themes", force: :cascade do |t|
     t.string   "name"
     t.integer  "qty_items"
@@ -67,12 +59,5 @@ ActiveRecord::Schema.define(version: 20170105185602) do
     t.boolean  "admin",           default: false
   end
 
-  create_table "values", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "photo_id"
-    t.integer  "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "albums", "users"
 end

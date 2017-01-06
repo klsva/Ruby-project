@@ -1,25 +1,12 @@
-h1 Listing albums
+= provide(:title, t('shared.header.albums'))
 
-table
-  thead
-    tr
-      th Album name
-      th Album description
-      th User
-      th
-      th
-      th
+.row
+  h1 = t('shared.header.albums')
 
-  tbody
-    - @albums.each do |album|
-      tr
-        td = album.album_name
-        td = album.album_description
-        td = album.user_id
-        td = link_to 'Show', album
-        td = link_to 'Edit', edit_album_path(album)
-        td = link_to 'Destroy', album, data: { confirm: 'Are you sure?' }, method: :delete
+  = will_paginate
 
-br
-
-= link_to 'New Album', new_album_path
+  ul.albums
+    = render @albums
+  /@@albums - список объектов Albums, Rails автоматически перебирает ее
+      и отображает каждый элемент коллекции с помощью шаблона _user
+  = will_paginate

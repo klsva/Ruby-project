@@ -1,12 +1,12 @@
-= provide(:title, t('.all_users'))
+= provide(:title, t('shared.header.users'))
 
 .row
-  h1 = t('.all_users')
+  h1 = t('shared.header.users')
 
   = will_paginate
 
   ul.users
     = render @users
-    /@users - список объектов User, Rails автоматически перебирает ее
+  /@users - список объектов User, Rails автоматически перебирает ее
       и отображает каждый элемент коллекции с помощью шаблона _user
   = will_paginate

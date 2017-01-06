@@ -42,3 +42,11 @@ User.create!(name: "Admin User",
                 password: password,
                 password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+10.times do
+  album_name = Faker::Lorem.sentence(1)
+  album_description = Faker::Lorem.sentence(5)
+  users.each {|user| user.albums.create!(album_name: album_name,
+                                        album_description: album_description)}
+end

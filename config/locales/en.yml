@@ -25,6 +25,12 @@ en:
       home: "Home"
       help: "Help"
       log_in: "Log in"
+      users: "Users"
+      albums: "Albums"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      log_out: "Log out"
   main:
     index:
       signup: "Sign up"
@@ -33,5 +39,4 @@ en:
       my_profile: "My profile"
     edit:
       edit_user: "Edit user"
-    index:
-      all_users: "All users"
+

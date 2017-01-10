@@ -50,3 +50,9 @@ users = User.order(:created_at).take(6)
   users.each {|user| user.albums.create!(album_name: album_name,
                                         album_description: album_description)}
 end
+
+
+#10.times do
+#  photo_name = Faker::Number.between(1, 10)
+#  albums.each {|album| album.photo_name.create!(photo_name: photo_name)}
+#end

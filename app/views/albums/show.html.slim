@@ -1,0 +1,17 @@
+= provide(:title, t('.album'))
+
+.row
+  aside
+    section.user_info
+      h1
+        = gravatar_for @user
+        = @user.name
+
+.col-md-8
+  - if @album.photos.any?
+    h3 = @album.album_name
+    ul.photo
+      - @photo.each do |i|
+        li
+          = i.photo_name
+

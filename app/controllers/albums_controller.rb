@@ -6,6 +6,10 @@ class AlbumsController < ApplicationController
     @albums = Album.paginate(page: params[:page])
   end
 
+  def new
+    @album = Album.new
+  end
+
   def create
     @album = current_user.albums.build(album_params)
     if @album.save
@@ -17,6 +21,24 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def show
+
+  end
+
+  def update
+    @album = Album.find_by_id(params[:id])
+    if @album.update_attributes(album_params)
+      #обработать успешное изменение
+      flash[:success] = "Альбом обновлен"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @album.destroy
     flash[:success] = "Альбом удален"
@@ -25,11 +47,11 @@ class AlbumsController < ApplicationController
   end
 
   #определяем строгие параметы, что можно редактировать
-  private
-    def album_params
-      params.require(:album).permit(:album_name, :album_description)
-    end
 
+    def album_params
+      params.require(:album).permit(:album_name, :album_description, photos_attributes: [:photo_name])
+    end
+  private
     def correct_user
       @album = current_user.albums.find_by(id: params[:id])
       redirect_to root_url if @album.nil?

@@ -74,3 +74,12 @@ gem 'faker'
 #для пагинации
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+#для изображений
+#добавляет загрузчик изображений
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+
+#для nested_form
+gem 'nested_form'

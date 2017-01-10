@@ -16,5 +16,7 @@ li.down id="album-#{album.id}"
     | назад.
     - if current_user?(album.user)
       br
+        = link_to "Редактировать", edit_album_path(album.id)
         = link_to "Удалить", album, method: :delete, class: "btn btn-default",
                                   data: {confirm: "Удалить альбом?"}
+

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users #обеспечивает автоматический вызов всех методов REST
-  resources :albums, only: [:create, :destroy, :index, :show]
+  resources :albums
+
 
 
 #

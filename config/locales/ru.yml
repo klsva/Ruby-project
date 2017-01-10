@@ -10,6 +10,7 @@ ru:
       profile: "Профиль"
       settings: "Настройки"
       log_out: "Выход"
+      photos: "Фотографии"
   main:
     index:
       signup: "Зарегистрироваться"
@@ -18,3 +19,6 @@ ru:
       my_profile: "Мой профиль"
     edit:
       edit_user: "Редактировать профиль"
+  albums:
+    edit:
+      edit_album: "Редактировать альбом"

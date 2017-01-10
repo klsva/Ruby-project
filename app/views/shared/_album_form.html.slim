@@ -7,8 +7,9 @@
   = f.label :album_description, "Описание альбома"
   = f.text_area :album_description, class: 'form-control', placeholder: "Опишите о чем ваш альбом..."
 
-  = f.fields_for :photos do |photo_fields|
-    = photo_fields.file_field :photo_name
+  = f.fields_for :photos, Photo.new do |photo_fields|
+
+    = photo_fields.file_field :file, accept: 'image/jpeg, image/gif, image/png'
 
 
   = f.submit "Create", class: "btn btn-primary"

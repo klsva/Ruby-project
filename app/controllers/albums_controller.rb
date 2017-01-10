@@ -8,6 +8,7 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @album.photos.build_album
   end
 
   def create
@@ -47,11 +48,11 @@ class AlbumsController < ApplicationController
   end
 
   #определяем строгие параметы, что можно редактировать
-
-    def album_params
-      params.require(:album).permit(:album_name, :album_description, photos_attributes: [:photo_name])
-    end
   private
+    def album_params
+      params.require(:album).permit(:album_name, :album_description, photos_attributes: [:id, :album_id, :file, :ave_value])
+    end
+
     def correct_user
       @album = current_user.albums.find_by(id: params[:id])
       redirect_to root_url if @album.nil?

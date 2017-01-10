@@ -1,8 +1,9 @@
 class CreatePhotos < ActiveRecord::Migration[5.0]
   def change
     create_table :photos do |t|
-      t.string :photo_name
-      t.references :album, foreign_key: true
+      t.string :file
+      t.float :ave_value
+      t.integer :album_id
 
       t.timestamps
     end

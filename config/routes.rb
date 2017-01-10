@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photos
   root               'main#index'
   get 'help'      => 'main#help'
   get 'signup'    => 'users#new'

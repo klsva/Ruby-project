@@ -6,7 +6,8 @@
       h1
         = gravatar_for @user
         = @user.name
-
+    section.stats
+      = render 'shared/stats'
 .col-md-8
   - if @user.albums.any?
     h3 Альбомы = @user.albums.count

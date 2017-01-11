@@ -1,5 +1,13 @@
 class User < ApplicationRecord
   has_many :albums, dependent: :destroy #каскадное удаление альбомов вместе с удалением учетной записи пользователя
+  has_many :active_relationships, class_name: "Relationship", #сообщаем класс
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed #переопределяем, указываем источник
+  has_many :followers, through: :passive_relationships, source: :follower
   attr_accessor :remember_token #создает методы доступа к атрибуту(getter и setter)
   before_save {self.email=email.downcase} #перевод в нижний регистр
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
@@ -46,5 +54,20 @@ class User < ApplicationRecord
     Album.where("user_id = ?", id)
     #знак ? гарантирует экранирование знач id перед включением в БД запрос
 
+  end
+
+  #выполняет подписку на сообщения пользователя
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  #отменяет подписку на сообщения пользователя
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  #возвращает true, если текущий пользователь читает другого пользователя
+  def following?(other_user)
+    following.include?(other_user)
   end
 end

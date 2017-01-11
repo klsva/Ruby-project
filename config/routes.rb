@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :photos
+
   root               'main#index'
   get 'help'      => 'main#help'
   get 'signup'    => 'users#new'
@@ -7,8 +7,16 @@ Rails.application.routes.draw do
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users #обеспечивает автоматический вызов всех методов REST
-  resources :albums
+  resources :users do
+    member do
+      get :following, :followers #users/1/following users/1/followers
+    end
+  end
+  resources :albums #обеспечивает автоматический вызов всех методов REST
+  resources :photos
+  resources :relationships, only: [:create, :destroy]
+
+
 
 
 

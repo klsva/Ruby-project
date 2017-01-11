@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = current_user.albums.build(album_params)
+    @album = current_user.albums.build(album_params) #создает новое взаимоотношение, запрос post
     if @album.save
       flash[:success] = "Альбом сохранен!"
       redirect_to root_url

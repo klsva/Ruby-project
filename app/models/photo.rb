@@ -1,4 +1,13 @@
 class Photo < ApplicationRecord
   belongs_to :album
   mount_uploader :file, PhotoUploader
+  validate :file_size
+
+  private
+    #проверка размера изображения
+    def file_size
+      if file.size > 5.megabytes
+        errors.add(:file, "должен быть меньше 5Мб")
+      end
+    end
 end

@@ -2,13 +2,17 @@ li.down id="album-#{album.id}"
   = link_to gravatar_for(album.user, size: 50), album.user
   br
     span.user
-    = link_to album.user.name, album.user
+      = link_to album.user.name, album.user
   br
     span.album-name
-    = album.album_name
+      = album.album_name
   br
     span.album-description
-    = album.album_description
+      = album.album_description
+  br
+    .photo
+      = image_tag album.photos.first.file_url if album.photos !=[]
+
   br
     span.timestamp
     | Альбом создан

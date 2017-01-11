@@ -56,3 +56,11 @@ end
 #  photo_name = Faker::Number.between(1, 10)
 #  albums.each {|album| album.photo_name.create!(photo_name: photo_name)}
 #end
+
+#взаимоотношения следования
+users = User.all
+user = users.first
+following = users[2..15]
+followers = users[3..10]
+following.each { |followed| user.follow(followed)}
+followers.each { |follower| follower.follow(user)}

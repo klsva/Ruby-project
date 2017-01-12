@@ -19,6 +19,9 @@
 .down{
     margin-top: 50px;
 }
+.half-down{
+    margin-top: 10px;
+}
 html {
     position: relative;
     min-height: 100%;
@@ -39,3 +42,71 @@ body {
 .footer p{
     margin-top: 18px;
 }
+h1,h2,h3{
+    line-height: 1;
+}
+section.user_info{
+    margin-top: 20px;
+}
+.gravatar{
+    float: left;
+    margin-right: 10px;
+}
+.gravatar_edit{
+    margin-top: 15px;
+}
+li{
+  list-style-type: none;
+}
+.users li{
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgray;
+}
+.user-link{
+    padding-left: 20px;
+}
+.albums{
+    list-style: none;
+    padding: 0;
+}
+.user{
+    margin-top: 5em;
+    padding-top: 0;
+}
+.timestamp{
+    color: lightgray;
+    display: block;
+    margin-left: 60 px;
+}
+.photo{
+
+}
+.stats{
+    overflow: auto;
+    margin-top: 5px;
+    padding: 0;
+}
+.stats a{
+    float: left;
+    padding: 0px 10px;
+    border-left: 1px solid lightgrey;
+    color: grey;
+}
+.photo-form{
+    margin-top: 5px;
+}
+.albums li{
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid lightgray;
+}
+.rating{
+
+}
+.line{
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}
+
+

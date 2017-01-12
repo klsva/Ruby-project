@@ -5,22 +5,32 @@ li.down id="album-#{album.id}"
       = link_to album.user.name, album.user
   br
     span.album-name
-      = album.album_name
+      |Название альбома:
+      br
+      = link_to album.album_name, album
   br
     span.album-description
+      |Описание альбома:
+      br
       = album.album_description
   br
     .photo
       = image_tag album.photos.first.file_url if album.photos !=[]
 
-  br
+
     span.timestamp
-    | Альбом создан
-    = time_ago_in_words(album.created_at)
-    | назад.
-    - if current_user?(album.user)
+      /| Альбом создан
+      /= time_ago_in_words(album.created_at)
+      /| назад.
       br
-        = link_to "Редактировать", edit_album_path(album.id)
-        = link_to "Удалить", album, method: :delete, class: "btn btn-default",
+      = album.photos.count
+      |  фото в альбоме
+      br
+    = link_to "Посмотреть альбом", album_path(album.id),  class: "btn btn-link btn-xs"
+    - if current_user?(album.user)
+
+        = link_to "Редактировать название и описание альбома", edit_album_path(album.id), class: "btn btn-link btn-xs"
+
+        = link_to "Удалить альбом", album, method: :delete, class: "btn btn-link btn-xs",
                                   data: {confirm: "Удалить альбом?"}
 

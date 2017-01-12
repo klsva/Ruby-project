@@ -14,8 +14,7 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.build(album_params) #создает новое взаимоотношение, запрос post
     if @album.save
-      flash[:success] = "Альбом сохранен!"
-      redirect_to root_url
+      redirect_to root_url, notice: "Альбом сохранен!"
     else
       @feed_items = []
       render 'main/index'
@@ -26,15 +25,15 @@ class AlbumsController < ApplicationController
   end
 
   def show
-
+    @album = Album.find(params[:id])
+    render 'albums/show'
   end
 
   def update
     @album = Album.find_by_id(params[:id])
     if @album.update_attributes(album_params)
       #обработать успешное изменение
-      flash[:success] = "Альбом обновлен"
-      redirect_to root_url
+      redirect_to root_url, notice: "Альбом обновлен"
     else
       render 'edit'
     end
@@ -42,8 +41,7 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album.destroy
-    flash[:success] = "Альбом удален"
-    redirect_to request.referrer || root_url
+    redirect_to request.referrer || root_url, notice: "Альбом удален"
     #request.referrer - переадресует на предыдущий url
   end
 

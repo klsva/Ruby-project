@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @value.user_id
+p
+  strong Photo:
+  = @value.photo_id
+p
+  strong Value:
+  = @value.value
+
+= link_to 'Edit', edit_value_path(@value)
+'|
+= link_to 'Back', values_path

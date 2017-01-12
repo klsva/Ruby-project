@@ -1,17 +1,38 @@
 = provide(:title, t('.album'))
 
 .row
-  aside
-    section.user_info
-      h1
-        = gravatar_for @user
-        = @user.name
 
-.col-md-8
   - if @album.photos.any?
+
+
     h3 = @album.album_name
-    ul.photo
-      - @photo.each do |i|
-        li
-          = i.photo_name
+    .down
+    = render 'shared/photo_form'
+    .all-photo.down
+      - @album.photos.each do |i|
+        .row.line
+          .col-md-8.photo.left
+          = image_tag i.file_url
+          .col-md-4.rating
+            span
+              = i.ave_value
+              |  средняя оценка фото
+            .rate
+              = form_for Value.new do |f|
+                = hidden_field_tag :value_user_id, current_user.id
+                = hidden_field_tag :value_photo_id, i.id
+                = f.label :value, "Оцените фото:"
+                = f.text_field :value, class: "input-sm"
+                = f.submit "Оценить фото", class: "btn btn-primary btn-sm"
+
+            - if current_user?(@album.user)
+              = link_to "Удалить фото", i, method: :delete, class: "btn btn-link",
+                      data: {confirm: "Удалить фото?"}
+
+  - else
+    .down
+    |В альбоме еще нет фотографий. Хотите добавить?
+    .half-down
+    = render 'shared/photo_form'
+
 

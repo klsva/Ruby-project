@@ -1,6 +1,7 @@
 class Photo < ApplicationRecord
   belongs_to :album
   mount_uploader :file, PhotoUploader
+  has_many :values
   validate :file_size
 
   private

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root               'main#index'
   get 'help'      => 'main#help'
   get 'signup'    => 'users#new'
@@ -9,15 +10,15 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers #users/1/following users/1/followers
+      #get :following, :followers #users/1/following users/1/followers
+      get 'following'
+      get 'followers'
     end
   end
   resources :albums #обеспечивает автоматический вызов всех методов REST
   resources :photos
+  resources :values
   resources :relationships, only: [:create, :destroy]
-
-
-
 
 
 #

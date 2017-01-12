@@ -22,8 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Добро пожаловать!"
-      redirect_to @user
+      redirect_to @user, notice: "Добро пожаловать!"
     else
       render 'new' #ищет метод new
     end
@@ -35,8 +34,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       #обработать успешное изменение
-      flash[:success] = "Профиль обновлен"
-      redirect_to @user
+      redirect_to @user, notice: "Профиль обновлен"
     else
       render 'edit'
     end
@@ -44,8 +42,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "Пользователь удален"
-    redirect_to users_url
+    redirect_to users_url, notice: "Пользователь удален"
   end
 
   def following
@@ -61,6 +58,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+
   end
 
   private

@@ -111,8 +111,12 @@ li{
     border-bottom: 1px solid lightgray;
     padding: 10px;
 }
-.car-img{
-    display:block !important;
+.center{
+    display: block;
+    margin: 0 auto;
+}
+.carousel-caption{
+    padding-bottom: 0px;
 }
 
 

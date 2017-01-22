@@ -12,6 +12,13 @@
     .all-photo.down
       - @album.photos.each do |i|
         .row.line
+          .photo
+            = image_tag i.file_url
+          - if current_user?(@album.user)
+            = link_to "Удалить фото", i, method: :delete, class: "btn btn-link",
+                    data: {confirm: "Удалить фото?"}
+
+        /.row.line
           .col-md-8.photo.left
           = image_tag i.file_url
           .col-md-4.rating

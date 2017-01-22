@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete 'logout'             => 'sessions#destroy'
   get 'competitions'          => 'competitions#index'
   get '/competitions/(:id)'   => 'competitions#select_photos'
-
+  get '/info/(:id)'           => 'competitions#show_info'
 
   resources :users do
     member do

@@ -4,13 +4,18 @@ class CompetitionsController < ApplicationController
   end
 
   def select_photos
-
-    @photos = Album.find(params[:id]).photos.pluck(:file)
+    #@photos = Album.find(params[:id]).photos.pluck(:file)
+    @photos = Album.find(params[:id]).photos
     respond_to do |format|
       format.json { render json: @photos }
     end
   end
 
-
+  def show_info
+    @photo = Photo.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @photo }
+    end
+  end
 
 end

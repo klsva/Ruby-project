@@ -1,17 +1,14 @@
-= form_for(@album, html: { multipart: true }) do |f|
+= form_for(Album.new, html: { multipart: true }) do |f|
   = render 'shared/error_message', object: f.object
 
-  - if current_user.admin?
-    = f.check_box :competition, value: 'true'
-    |  конкурсный альбом
-  - else
-    = hidden_field_tag :competition, 'false'
+  = hidden_field_tag :competition, 'true'
 
   = f.label :album_name, "Название альбома"
   = f.text_field :album_name, class: 'form-control'
   .half-down
   = f.label :album_description, "Описание альбома"
-  = f.text_area :album_description, class: 'form-control', placeholder: "Опишите о чем ваш альбом..."
+  = f.text_area :album_description, class: 'form-control',
+          placeholder: "Опишите условия конкурса и срои его проведения..."
   .photo-form
   = f.fields_for :photos, Photo.new do |photo_fields|
 
@@ -19,4 +16,3 @@
 
   .half-down
   = f.submit "Create", class: "btn btn-primary"
-

@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
 
 
 
+
+
     def set_locale_from_params
       if params[:locale]
         extr_locale_in_accept_lang

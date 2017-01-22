@@ -7,7 +7,8 @@
 
     h3 = @album.album_name
     .down
-    = render 'shared/photo_form'
+      -if current_user?(@album.user)
+        = render 'shared/photo_form'
     .all-photo.down
       - @album.photos.each do |i|
         .row.line
@@ -31,8 +32,11 @@
 
   - else
     .down
-    |В альбоме еще нет фотографий. Хотите добавить?
-    .half-down
-    = render 'shared/photo_form'
+      -if current_user?(@album.user)
+        |В альбоме еще нет фотографий. Хотите добавить?
+        .half-down
+        = render 'shared/photo_form'
+      -else
+         |В альбоме нет фотографий
 
 

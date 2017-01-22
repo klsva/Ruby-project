@@ -11,6 +11,7 @@ ru:
       settings: "Настройки"
       log_out: "Выход"
       photos: "Фотографии"
+      competitions: "Конкурсы"
   main:
     index:
       signup: "Зарегистрироваться"

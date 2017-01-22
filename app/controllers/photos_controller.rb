@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:create, :destroy]
+
 
   # GET /photos
   # GET /photos.json
@@ -70,5 +72,10 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:file, :ave_value, :album_id)
+    end
+
+    def correct_user
+      @album = current_user.albums.find_by(id: params[:id])
+      redirect_to root_url if @album.nil?
     end
 end

@@ -84,6 +84,7 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'jquery-slick-rails'
 
 #для nested_form
 gem 'nested_form'

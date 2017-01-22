@@ -14,7 +14,10 @@
  *= require font-awesome
  *= require_tree .
  *= require_self
+ *= require slick
+ *= require slick-theme
  */
+
 /*my styles*/
 .down{
     margin-top: 50px;
@@ -107,6 +110,9 @@ li{
 .line{
     border-bottom: 1px solid lightgray;
     padding: 10px;
+}
+.car-img{
+    display:block !important;
 }
 
 

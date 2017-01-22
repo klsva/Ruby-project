@@ -27,11 +27,11 @@ Theme.create(
         {name: 'Другие велосипеды'}
     ]
 )
-
+#создание пользователей
 User.create!(name: "Admin User",
               email: "admin@admin.com",
               password: "123456",
-              password_confirmation: "123456",
+              password_confirmation: '123456',
               admin: true)
 45.times do |n|
   name = Faker::Name.name
@@ -43,6 +43,7 @@ User.create!(name: "Admin User",
                 password_confirmation: password)
 end
 
+#создание альбомов
 users = User.order(:created_at).take(6)
 10.times do
   album_name = Faker::Lorem.sentence(1)
@@ -51,10 +52,16 @@ users = User.order(:created_at).take(6)
                                         album_description: album_description)}
 end
 
-
-#10.times do
-#  photo_name = Faker::Number.between(1, 10)
-#  albums.each {|album| album.photo_name.create!(photo_name: photo_name)}
+#фотографии в альбомы
+# file = (Faker::Number.between(1, 10)).to_s + '.jpeg'
+# a = ['1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg']
+# file = a.shuffle.first
+#albums = Album.all
+#5.times do
+#  file = 'asdfg'
+#  ave_value = Faker::Number.between(1,10)
+#  albums.each {|album| album.photos.create(file: file,
+#                                            ave_value: ave_value)}
 #end
 
 #взаимоотношения следования
@@ -64,3 +71,4 @@ following = users[2..15]
 followers = users[3..10]
 following.each { |followed| user.follow(followed)}
 followers.each { |follower| follower.follow(user)}
+

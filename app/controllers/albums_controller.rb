@@ -48,7 +48,7 @@ class AlbumsController < ApplicationController
   #определяем строгие параметы, что можно редактировать
   private
     def album_params
-      params.require(:album).permit(:album_name, :album_description, photos_attributes: [:id, :album_id, :file, :ave_value])
+      params.require(:album).permit(:competition, :album_name, :album_description, photos_attributes: [:id, :album_id, :file, :ave_value])
     end
 
     def correct_user

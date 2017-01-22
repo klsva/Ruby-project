@@ -1,0 +1,16 @@
+.row
+  h1 Выбери конкурс
+  #select_competitions
+    = select_tag ':albums', options_from_collection_for_select(@albums, :id, :album_name, @albums.ids.first),
+                            class: 'form-control'
+.row.down
+
+    #myCarousel.carousel.slide[data-ride="carousel"]
+      .carousel-inner[role="listbox"]
+
+      a.left.carousel-control[href="#myCarousel" role="button" data-slide="prev"]
+        i.fa.fa-arrow-circle-left.icon.icon-left aria-hidden="true"
+        span.sr-only Previous
+      a.right.carousel-control[href="#myCarousel" role="button" data-slide="next"]
+        i.fa.fa-arrow-circle-right.icon.icon-right aria-hidden="true"
+        span.sr-only Next

@@ -7,6 +7,6 @@ class CreateAlbums < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :albums, [:user_id, :created_at] #чтобы получить альбомы в обратном порядке от их создания
+    add_index :albums, [:user_id, :created_at], unique: true #чтобы получить альбомы в обратном порядке от их создания
   end
 end

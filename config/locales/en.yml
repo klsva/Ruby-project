@@ -32,6 +32,7 @@ en:
       settings: "Settings"
       log_out: "Log out"
       photos: "Photo"
+      competitions: "Competitions"
   main:
     index:
       signup: "Sign up"

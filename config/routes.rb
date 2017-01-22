@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
 
-  root               'main#index'
-  get 'help'      => 'main#help'
-  get 'signup'    => 'users#new'
-  get 'login'     => 'sessions#new'
-  post 'login'    => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  root                           'main#index'
+  get 'help'                  => 'main#help'
+  get 'signup'                => 'users#new'
+  get 'login'                 => 'sessions#new'
+  post 'login'                => 'sessions#create'
+  delete 'logout'             => 'sessions#destroy'
+  get 'competitions'          => 'competitions#index'
+  get '/competitions/(:id)'   => 'competitions#select_photos'
+
 
   resources :users do
     member do

@@ -21,6 +21,7 @@ $ ->
   $('select').change change_trigger
   change_trigger $('select')
 
+#  $(window).load info
 #  info = ->
 #    id = $('.active > img').attr('id')
   #id в оценку
@@ -32,6 +33,7 @@ $ ->
         box = $ '.value-form'
         box.empty()
         box.append "<div  class='qwert'>#{data.id}</div>"
+
 
   $('#myCarousel').click info
   $('select').change info

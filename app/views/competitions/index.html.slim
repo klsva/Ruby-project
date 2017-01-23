@@ -2,7 +2,7 @@
 .row
   h1 Выбери конкурс
   #select_competitions
-    = select_tag ':albums', options_from_collection_for_select(@albums, :id, :album_name, @albums.ids.first),
+    = select_tag ':albums', options_from_collection_for_select(@albums, :id, :album_name),
             class: 'form-control'
 .row.down
 
@@ -23,9 +23,26 @@
       'Твой голос важен для участников.
       'Поставь оценку, если фотография тебе нравится!
 
-      = form_for Value.new do |f|
+      /= form_for Value.new do |f|
         = hidden_field_tag :user_id, current_user.id
         = hidden_field_tag :photo_id
         = f.label :value
         = f.number_field :value
         = f.submit "Оценить", class: "btn btn-primary"
+
+      .rating
+          input#star1[type="radio" name="star" checked="checked"]
+          label[for="star1"]
+          .star
+          input#star2[type="radio" name="star"]
+          label[for="star2"]
+          .star
+          input#star3[type="radio" name="star"]
+          label[for="star3"]
+          .star
+          input#star4[type="radio" name="star"]
+          label[for="star4"]
+          .star
+          input#star5[type="radio" name="star"]
+          label[for="star5"]
+          .star

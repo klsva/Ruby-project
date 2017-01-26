@@ -18,4 +18,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
+  def results
+    @photos = Album.find(params[:id]).photos
+  end
+
+
+
 end

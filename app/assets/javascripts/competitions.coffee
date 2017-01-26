@@ -9,34 +9,35 @@ $ ->
     $.get
       url: "/competitions/#{$('select').val()}"
       success: (data) ->
-        #console.log(data)
+        console.log(data)
         box = $ '.carousel-inner'
         box.empty()
         data.forEach (i) ->
-          box.append "<div  class='item'><img id=#{i.id} class='center'   +
-            src=#{i.file.url}><div class='carousel-caption'>Средняя оценка фото: #{i.ave_value}</div></div>"
+          box.append "<div  class='item'><img id=#{i.id} class='center' src=#{i.file.url}></div>"
 
         $($('.item')[0]).addClass('active');
+
+        box2 = $ '.album-id'
+        box2.empty()
+        box2.append "<a class=btn-link href=/results/#{$('select').val()}>Посмотреть результаты голосования</a>"
+
 
   $('select').change change_trigger
   change_trigger $('select')
 
-#  $(window).load info
-#  info = ->
-#    id = $('.active > img').attr('id')
   #id в оценку
   info = ->
     $.get
       url: "/info/#{$('.active > img').attr('id')}"
       success: (data) ->
-        console.log(data)
-        box = $ '.value-form'
+        box = $ '.photo-id'
         box.empty()
-        box.append "<div  class='qwert'>#{data.id}</div>"
+        #box.append "<div  class='qwert'>#{data.id}</div>"
+        box.append "<input type=hidden name=value[photo_id] id=value_photo_id value=#{data.id}>"
 
 
-  $('#myCarousel').click info
-  $('select').change info
+  $('#inforfo').mousemove info
+
 
 
 

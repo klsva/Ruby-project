@@ -26,10 +26,10 @@ class ValuesController < ApplicationController
   # POST /values.json
   def create
     @value = Value.new(value_params)
-
+    @photo = Photo.find(@value.photo_id)
     respond_to do |format|
       if @value.save
-        format.html { redirect_to album_url || root_url, notice: 'Value was successfully created.' }
+        format.html { redirect_to  competitions_path || root_url, notice: 'Оценка поставлена. Спасибо!' }
         format.json { render :show, status: :created, location: @value }
       else
         format.html { render :new }
@@ -72,4 +72,5 @@ class ValuesController < ApplicationController
     def value_params
       params.require(:value).permit(:user_id, :photo_id, :value)
     end
+
 end

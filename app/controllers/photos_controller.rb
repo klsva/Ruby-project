@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to album_url || root_url, notice: 'Фото1 добавлено.' }
+        format.html { redirect_to album_url || root_url, notice: 'Фото добавлено.' }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }

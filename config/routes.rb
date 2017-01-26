@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'competitions'          => 'competitions#index'
   get '/competitions/(:id)'   => 'competitions#select_photos'
   get '/info/(:id)'           => 'competitions#show_info'
+  get '/results/(:id)'        => 'competitions#results'
 
   resources :users do
     member do

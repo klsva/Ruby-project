@@ -1,25 +1,22 @@
-h1 Listing values
+/должно быть отображение общих результатов голосования в табличной форме по всем картинкам
 
-table
+h1 Результаты голосования
+
+table.table.table-striped
   thead
     tr
-      th User
-      th Photo
-      th Value
-      th
-      th
-      th
-
+      th Фото
+      th Средняя оценка
   tbody
-    - @values.each do |value|
+    - @photos.each do |photo|
       tr
-        td = value.user_id
-        td = value.photo_id
-        td = value.value
-        td = link_to 'Show', value
-        td = link_to 'Edit', edit_value_path(value)
-        td = link_to 'Destroy', value, data: { confirm: 'Are you sure?' }, method: :delete
+        td = photo.file
+        td = photo.values.average(:value)
+
+        /td = link_to 'Show', value
+        /td = link_to 'Edit', edit_value_path(value)
+        /td = link_to 'Destroy', value, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Value', new_value_path
+= link_to 'Голосовать еще', competitions_path

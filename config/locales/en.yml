@@ -42,6 +42,8 @@ en:
     edit:
       edit_user: "Edit user"
     albums:
+      show:
+        album: "Album"
       edit:
         edit_album: "Edit album"
 

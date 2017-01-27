@@ -9,7 +9,7 @@ $ ->
     $.get
       url: "/competitions/#{$('select').val()}"
       success: (data) ->
-        console.log(data)
+        #console.log(data)
         box = $ '.carousel-inner'
         box.empty()
         data.forEach (i) ->
@@ -30,13 +30,14 @@ $ ->
     $.get
       url: "/info/#{$('.active > img').attr('id')}"
       success: (data) ->
+        console.log(data)
         box = $ '.photo-id'
         box.empty()
         #box.append "<div  class='qwert'>#{data.id}</div>"
         box.append "<input type=hidden name=value[photo_id] id=value_photo_id value=#{data.id}>"
 
 
-  $('#inforfo').mousemove info
+  $('#rating-form').change info
 
 
 

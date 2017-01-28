@@ -7,16 +7,16 @@
   - else
     = hidden_field_tag :competition, 'false'
 
-  = f.label :album_name, "Название альбома"
+  = f.label :album_name, 'Название альбома'
   = f.text_field :album_name, class: 'form-control'
   .half-down
-  = f.label :album_description, "Описание альбома"
-  = f.text_area :album_description, class: 'form-control', placeholder: "Опишите о чем ваш альбом..."
+  = f.label :album_description, 'Описание альбома'
+  = f.text_area :album_description, class: 'form-control', placeholder: 'Опишите о чем ваш альбом...'
   .photo-form
   = f.fields_for :photos, Photo.new do |photo_fields|
 
     = photo_fields.file_field :file, accept: 'image/jpeg, image/gif, image/png'
 
   .half-down
-  = f.submit "Create", class: "btn btn-primary"
+  = f.submit t('shared.album.create'), class: 'btn btn-primary'
 

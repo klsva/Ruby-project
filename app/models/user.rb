@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed #переопределяем, указываем источник
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :values, dependent: :destroy
+  has_many :comments, dependent: :destroy
   attr_accessor :remember_token #создает методы доступа к атрибуту(getter и setter)
   before_save {self.email=email.downcase} #перевод в нижний регистр
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true

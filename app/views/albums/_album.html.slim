@@ -26,11 +26,12 @@ li.down id="album-#{album.id}"
       = album.photos.count
       |  фото в альбоме
       br
-    = link_to "Посмотреть альбом", album_path(album.id),  class: "btn btn-link btn-xs"
+    = link_to 'Посмотреть альбом', album_path(album.id),  class: 'btn btn-link btn-xs'
     - if current_user?(album.user)
 
-        = link_to "Редактировать название и описание альбома", edit_album_path(album.id), class: "btn btn-link btn-xs"
+        = link_to 'Редактировать название и описание альбома',
+                edit_album_path(album.id), class: 'btn btn-link btn-xs'
 
-        = link_to "Удалить альбом", album, method: :delete, class: "btn btn-link btn-xs",
-                                  data: {confirm: "Удалить альбом?"}
+        = link_to 'Удалить альбом', album, method: :delete, class: 'btn btn-link btn-xs',
+                                  data: {confirm: 'Удалить альбом?'}
 

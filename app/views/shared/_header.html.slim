@@ -25,7 +25,7 @@
                 = link_to t('.settings'), edit_user_path(current_user)
               li.divider
               li
-                = link_to t('.log_out'), logout_path, method: "delete"
+                = link_to t('.log_out'), logout_path, method: 'delete'
         - else
           li
             = link_to t('.log_in'), login_path

@@ -7,43 +7,32 @@
 
     h3 = @album.album_name
     .down
-      -if current_user?(@album.user)
+      - if current_user?(@album.user)
         = render 'shared/photo_form'
     .all-photo.down
       - @album.photos.each do |i|
         .row.line
-          .photo
+          .photo.col-md-8
             = image_tag i.file_url
-          - if current_user?(@album.user)
-            = link_to "Удалить фото", i, method: :delete, class: "btn btn-link",
-                    data: {confirm: "Удалить фото?"}
-
-        /.row.line
-          .col-md-8.photo.left
-          = image_tag i.file_url
-          .col-md-4.rating
-            span
-              = i.ave_value
-              |  средняя оценка фото
-            .rate
-              = form_for Value.new do |f|
-                = hidden_field_tag :value_user_id, current_user.id
-                = hidden_field_tag :value_photo_id, i.id
-                = f.label :value, "Оцените фото:"
-                = f.text_field :value, class: "input-sm"
-                = f.submit "Оценить фото", class: "btn btn-primary btn-sm"
-
             - if current_user?(@album.user)
-              = link_to "Удалить фото", i, method: :delete, class: "btn btn-link",
-                      data: {confirm: "Удалить фото?"}
+              br
+              = link_to 'Удалить фотографию', album_path(@album.id,
+                      album: {photos_attributes: {id: i.id, _destroy: true}}),
+                      remote: true, confirm: 'Really delete?', method: :put
+          .col-md-4
+            |Здесь ввод и вывод комментариев
+            /= render 'comments/form'
+            /= render 'comments/index'
 
   - else
     .down
-      -if current_user?(@album.user)
+      - if current_user?(@album.user)
         |В альбоме еще нет фотографий. Хотите добавить?
         .half-down
         = render 'shared/photo_form'
-      -else
-         |В альбоме нет фотографий
+      - else
+        |В альбоме нет фотографий
 
-
+    /= link_to "Delete", question_path(question.id, пример
+              /question: { answers_attributes: { id: question.answers.id, "_destroy" => true }}),
+              /remote: true, confirm: "Really delete?", method: :put

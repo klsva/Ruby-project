@@ -12,6 +12,8 @@ ru:
       log_out: "Выход"
       photos: "Фотографии"
       competitions: "Конкурсы"
+    album:
+      create: "Создать альбом"
   main:
     index:
       signup: "Зарегистрироваться"

@@ -1,17 +1,7 @@
-= form_for Comment.new, remote: true do |f|
-  - if @comment.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
-      ul
-        - @comment.errors.full_messages.each do |message|
-          li = message
+= form_for :comment, url: album_path, remote: true, html: {id: 'comment-form'}do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :photo_id, value: @album.photos.ids
 
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :photo_id
-    = f.number_field :photo_id
   .field
     = f.label :content
     = f.text_area :content

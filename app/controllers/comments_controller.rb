@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    #@comments = Comment.all
+    @comments = Comment.where("photo_id = 'true'")
   end
 
   # GET /comments/1
@@ -28,7 +29,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to album_path, notice: 'Комментарий добавлен!' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }

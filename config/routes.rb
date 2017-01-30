@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :albums #обеспечивает автоматический вызов всех методов REST
   resources :photos
   resources :values
+  resources :comments
   resources :relationships, only: [:create, :destroy]
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -118,6 +118,9 @@ li{
 .carousel-caption{
     padding-bottom: 0px;
 }
+.icon-right, .icon-left{
+    margin-top: 7.5em;
+}
 
 .rating label {
     position: relative;
